@@ -1,0 +1,9 @@
+<html>
+<body> <h1>Author Formset</h1>
+   <form  method="POST">
+     {% csrf_token %}
+     {{ formset.as_p }}
+<div style="padding:30px;"><input type="submit" value="Submit"></div>
+</form>
+   </body>
+</html>

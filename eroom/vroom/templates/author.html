@@ -1,0 +1,16 @@
+{% extends "vroommaster.html" %}
+{% block title %}
+  Authors who create the video
+ 
+{% endblock %}
+
+{% block content %}
+  <h1>Authors</h1>
+  <ul>
+    {% for x in authors %}
+      <li><a href="details/{{ x.author }}">{{ x.firstname }} {{ x.lastname }}</a> <br/>
+      Tel: {{x.phone}}<br/>
+      Joined date: {{x.joined_date}}<br/>
+    {% endfor %}
+  </ul>
+{% endblock %}

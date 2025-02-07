@@ -1,0 +1,7 @@
+<form method="POST" action="/author_video/">
+ {% csrf_token %}
+{{formauthor.as_p}}
+</hr>
+{{formvideo.as_p}}
+  <input type="submit" value="Save"/>
+</form>

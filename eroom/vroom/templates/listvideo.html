@@ -1,0 +1,9 @@
+{% csrf_token %}
+<h1>Video lists</h1>
+    <table><tr><td>Title</td><td>Published date</td></tr>
+{% for video in latest_video %}
+    <tr>
+       <td> {{ video.title }}</td><td> {{ video.published_date }}</td>
+    </tr>
+{% endfor %}
+</table>
