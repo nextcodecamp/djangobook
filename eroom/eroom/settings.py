@@ -51,9 +51,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "eroom.urls"
-STATIC_URL = "vroom/static/"
+STATIC_URL = "vroom/static/"   #Directory นี้จะอยู่ภัดจาก Directory Project -> eroom/vroom/static  
 STATICFILES_DIRS = [
-    "/users/admin/django_proj/eroom/vroom/static/",
+    "somewhere/static/",  #พาธอื่น ๆ ที่มี Static file ที่ต้องการให้ Django มองเห็น
    
 ]
 TEMPLATES = [
