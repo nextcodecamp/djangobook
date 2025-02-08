@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}
+Approve course ro publish  to nextcodecamp e-learning
+{% endblock %}
+{% block menu %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin/">nextcodecamp.com</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/approveform/">Approve member </a></li>
+      <li><a class="active" href="/approvepublish/">Approve course </a></li>
+      
+      <li><a href="/paymentapprove/">Check payment</a></li>
+      <li><a href="/logoutsys/">Log out</a></li>
+
+
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+{% block content %}
+
+
+
+<h1 align="center">Approve course</h1>
+<div class="center" style = "width:700px; border:thin solid grey; padding:30px">
+<form action="/approvepublish/" method="POST">
+    {% csrf_token %}
+    {{formset.as_p}}
+   <div class="center" style="width:500px;margin:30px" > <input type="submit" value="Save"  class="btn btn-default"></div>
+</form>
+
+</div>
+{% endblock %}

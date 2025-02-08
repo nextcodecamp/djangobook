@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Pay for course
+{% endblock %}
+
+{% block menu %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin/">nextcodecamp.com</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/listcourse/">Home</a></li>
+      <li   class="active"><a>Payment </a></li>
+      
+      <li><a href="/memberpage/">My learning</a></li>
+       <li ><a href="/listcreatedcourse/">My course</a></li>
+      
+      <li><a href="/logoutsys/">Log out</a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+
+<h1 align="center">Payment</h1>
+<div class="center" style="width:700px;border:thin solid grey">
+
+<form action="/inquiryform/" method="POST">
+    {% csrf_token %}
+    <div style="margin:30px;width:700px;margin:0 auto;padding:30px">
+    <p>This is not the real function but QR code is real. 
+So please be careful not to pay for this course. Becuase our website is under construction.</p>
+
+     <h1 align="center">   <img src={% static 'qrcode.jpg' %} width="300" height="450" /></h1>
+      
+        Course {{context.title }} <br>
+        Course price {{context.saleprice }} bahts<br/>
+        Please pay before {{context.deadline}}.
+        
+   <p>Thank you very much. After we check your payment. You will see your new course.</p>
+        
+    </div>
+</form>
+</div>
+{% endblock %}

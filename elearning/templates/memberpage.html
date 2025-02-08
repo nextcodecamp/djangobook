@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+List online course for member
+{% endblock %}
+{% block menu %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin/">nextcodecamp.com</a>
+    </div>
+    <ul class="nav navbar-nav">
+     <li><a href="/listcourse/">Home</a></li>
+      <li class="active"><a href="/memberpage/">My learning</a></li>
+      <li><a href="/listcreatedcourse/">My course</a></li>
+    
+      <li><a href="/logoutsys/">Log out</a></li>
+
+
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+
+{%   for course in mycourse %}
+<div class="card bg-light text-dark center" style="padding:30px; margin:10ox;width:700px; ">
+    
+  <div class="card-body" >
+  
+   
+  <table style="background-color:#f8f6f6; width:600"><tr><td style="padding:30px;"">
+  
+ 
+  <img src="{{ course.cover.url  }}" width="70" height="80" /> </td>
+  <td style="padding:30px;width:500px"> {{course.title}} <br/><br/>{{ course.briefdetail}}<br/><br/>
+  {{course.price}}
+   <button type="button" class="btn btn-default"><a href="/courseroom/{{course.id}}/0/"> Learn</a></button>
+  
+  </td></tr>
+  </table>
+</div>
+</div>   
+
+{% endfor %}
+
+{% endblock %}
