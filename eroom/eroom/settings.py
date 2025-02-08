@@ -61,7 +61,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
     'corsheaders.middleware.CorsMiddleware', #REST
-'django.middleware.common.CommonMiddleware', #REST
+    'django.middleware.common.CommonMiddleware', #REST
 
 ]
 
@@ -174,8 +174,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'contactnextcodecamp@gmail.com'
-EMAIL_HOST_PASSWORD = "qknl xzzc iwtm flhr"
+EMAIL_HOST_USER = 'contactnextcodecamp@gmail.com' #Set to your email
+EMAIL_HOST_PASSWORD = "xxxx xxxx xxxx xxxx"       #Set to your password 
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
