@@ -51,9 +51,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "eroom.urls"
-STATIC_URL = "vroom/static/"
+STATIC_URL = "vroom/static/"   #Directory นี้จะอยู่ภัดจาก Directory Project -> eroom/vroom/static  
 STATICFILES_DIRS = [
-    "/users/admin/django_proj/eroom/vroom/static/",
+    "somewhere/static/",  #พาธอื่น ๆ ที่มี Static file ที่ต้องการให้ Django มองเห็น
    
 ]
 TEMPLATES = [
@@ -120,7 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+#STATIC_URL = "static/" #กำหนดไว้ในแอป vroom หากกำหนดแบบนี้ต้องเก็บ static file ไว้ที่ folder eroom/static ในระดับ Project
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
