@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+List online course
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+
+{%   for course in latest_course %}
+<div class="card bg-light text-dark center" style="padding:30px; margin:10ox;width:700px; ">
+    
+  <div class="card-body" >
+   <p class="card-text"> </p>
+   
+  <table style="background-color:#f8f6f6; width:600"><tr><td style="padding:30px;""><img src="{{ course.cover.url }}" width="160" height="190" /> </td>
+  <td style="padding:30px;width:500px">
+  {{ course.title }}
+  
+  {{ course.briefdetail}}<br/><br/>
+
+  {{course.price}}
+   <button type="button" class="btn btn-default"><a href="/coursedemoroom/{{course.id}}/0/">See this course </a></button>
+  <button type="button" class="btn btn-default"><a href="/payment/{{course.id}}/">Buy this course </a></button>
+   
+  </td></tr>
+  </table>
+</div>
+</div>   
+
+{% endfor %}
+
+{% endblock %}

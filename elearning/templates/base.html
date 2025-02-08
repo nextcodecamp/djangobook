@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'mainpage.css' %}">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1 align="center"><img src="{% static 'next.png' %}" width="70" heigh="70"> &nbsp; Upskill towards professional</h1>
+{% block menu %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin/">nextcodecamp.com</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/listcourse/">Home</a></li>
+      <li><a href="/register/">Register member</a></li>
+      <li><a href="/loginsys/">Log in</a></li> 
+      <li><a href="/inquiry/">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+{% block content %}
+{% endblock %}
+{% block footer %}
+<p align="center" style="margin-top:40px">Copyright Reserved &copy; 2024 by nextcodecamp </p>
+{% endblock %}
+
+</body>
+</html>

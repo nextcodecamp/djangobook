@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}
+Created Online Course  to nextcodecamp e-learning
+{% endblock %}
+{% block menu %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/home/">nextcodecamp.com</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/listcourse/">Home</a></li>
+      <li><a href="/memberpage/">My learning</a></li>
+      <li class="active"><a href="/listcreatedcourse/">My course</a></li>
+      
+      <li><a href="/logoutsys/">Log out</a></li>
+      
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+{% block content %}
+
+
+
+{% csrf_token %}
+
+<h1 align="center">คอร์สของคุณ</h1>
+<div class="center" style = "width:700px; border:thin solid grey;padding:30px">
+
+  {% for c in course %}
+  <table><tr><td width="160">
+    <img src="{{c.cover.url}}" width=70 height=80/></td>
+   <td>  {{c.title }} <br/>
+    {{c.briefdetail}} <br/>
+    {{c.saleprice}}<br/></td></tr></table>
+    
+    <a href="/editcourse/{{c.id}}/">Edit course</a> |&nbsp;&nbsp;
+    
+   <!--  <a href="/delcourse/{{c.id}}/">Delete course</a> |&nbsp;&nbsp; -->
+   <!-- <a href="../{{c.id}}/deletecourse/">Delete course</a> |&nbsp;&nbsp; -->
+   <a href="../delcourse/{{c.id}}/">Delete course</a> |&nbsp;&nbsp;
+   
+   
+    <a href="/listvideo/{{c.id}}/">Manage video</a> 
+
+    
+    
+
+
+ <hr/>  
+  {% endfor %} 
+
+<div style = "width:500px; "> <a href="../createcourse/"><input type="submit" value="Create new course"  class="btn btn-default"/></a></div>
+
+</div>
+
+
+{% endblock %}

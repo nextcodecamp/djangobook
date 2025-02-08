@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+Error notifiction
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<div class="center" style="width:400px;border:thin solid grey;padding:30px">
+<p>Error... </p>
+{{formerrors}}
+<p ><a href="/listcreatedcourse/">Back</a></p>
+</div>
+{% endblock %}

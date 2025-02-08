@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}
+Register member to nextcodecamp e-learning
+{% endblock %}
+{% block menu %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin/">nextcodecamp.com</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/listcourse/">Home</a></li>
+      <li class="active"><a href="/register/">Register member</a></li>
+      <li><a href="/loginsys/">Log in</a></li> 
+      <li><a href="/inquiry/">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+
+{% block content %}
+{% csrf_token %}
+<br/><br/>
+<div class="center" style = "width:700px; border:thin solid grey">
+<form action="/register/" method="POST">
+    {% csrf_token %}
+  {{  form.non_field_errors }}
+
+<div class="fieldWrapper" style="margin:30px; width:500px">
+    {{ form.firstname.errors }}
+    <label for="{{ form.firstname.id_for_label }}">Firstname:</label><br/>
+    {{ form.firstname }}
+</div>
+<div class="fieldWrapper center" style="margin:30px;width:500px">
+    {{ form.lastname.errors }}
+    <label for="{{ form.lastname.id_for_label }}">Lastname:</label><br/>
+    {{ form.lastname }}
+</div>
+<div class="fieldWrapper center" style="margin:30px;width:500px">
+    {{ form.userlogin.errors }}
+    <label for="{{ form.userlogin.id_for_label }}">Login name</label><br/>
+    {{ form.userlogin}}
+</div>
+<div class="fieldWrapper center" style="margin:30px;width:500px">
+    {{ form.userpass.errors }}
+    <label for="{{ form.userlogin.id_for_label }}">Password</label><br/>
+    {{ form.userpass}}
+</div>
+<div class="fieldWrapper center" style="margin:30px;width:500px">
+    {{ form.phone.errors }}
+    <label for="{{ form.phone.id_for_label }}">Phone</label><br/>
+    {{ form.phone}}
+</div>
+   <div class="center" style="width:500px;margin:30px" > <input type="submit" value="Register"  class="btn btn-default"></div>
+</form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}
+Course room
+{% endblock %}
+{% block menu %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin/">nextcodecamp.com</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/listcourse/">Home</a></li>
+      <li><a href="/memberpage/">My learning</a></li>
+      <li ><a href="/listcreatedcourse/">My course</a></li>
+      <li><a href="/logoutsys/">Log out</a></li>
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+{% block content %}
+<div class="container">
+
+<div class="row">
+<div class="col-sm-8">
+    <div style='background-color:black; padding:30px'>
+     <h1 align="center"> 
+
+<video width="560" height="315" controls>
+  <source src="{{ context.introclip.url }}" type="video/mp4">
+ 
+  Your browser does not support the video tag.
+</video>
+
+    </div>
+   <div style="width:200px;height:70px"> 
+    nextcodecamp.com  </div>
+     <div><h2>{{context.title}}</h2>
+  <h3>Course description</h3>
+  <p>{{ context.briefdetail}}</p>
+
+  </div>
+  </div>
+  <div class="col-sm-4"><div>
+        <div class="list-group">
+       {%   for clip in context.video_list %}
+           
+          <a href="/courseroom/{{context.courseid}}/{{clip.id}}/" class="list-group-item">{{clip.title}}</a>
+       {% endfor %}
+        </div>
+      </div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

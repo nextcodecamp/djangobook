@@ -1,0 +1,98 @@
+
+{% extends "base.html" %}
+{% block title %}
+Demo course room for general people
+{% endblock %}
+
+
+
+{% block content %}
+<div class="container">
+
+<div class="row">
+
+<div class="col-sm-9">
+    <div style='background-color:black;padding:30px' >
+     <h1 align="center"> 
+     <video width="600" height="315" controls>
+  <source src="{{ context.introclip.url }}" type="video/mp4">
+ 
+  Your browser does not support the video tag.
+</video>
+
+    </div>
+     <div><h2>{{context.title}}</h2>
+  <h3>Course description</h3>
+  <p>{{ context.briftdetail}}</p>
+  <h3>Code</h3>
+  {% if context.code %}
+     <p><textarea  rows="20" cols="140"> {{context.code}}</textarea></p>
+  {%endif%}
+  </div>
+  </div>
+  <div class="col-sm-3">
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse1">Part 1 </a>
+          {% if context.video_list|length > 10  %}
+           <a data-toggle="collapse" href="#collapse2">Part 2</a>
+          {% endif %}
+          {% if context.video_list|length > 20  %}
+           
+           <a data-toggle="collapse" href="#collapse3">Part 3</a>
+          {% endif %}
+           {% if context.video_list|length > 30  %}
+           
+           <a data-toggle="collapse" href="#collapse4">Part 4</a>
+          {% endif %}
+           
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+
+        <ul class="list-group">
+       
+         {%   for clip in context.video_list %}
+
+            
+          <!-- <a href="#" class="list-group-item">{{clip.title}}</a> -->
+          {%if clip.demo == True%}
+           <li class="list-group-item"><a href="/coursedemoroom/{{context.courseid}}/{{clip.id}}/" 
+           class="list-group-item">{{clip.title}}</a></li>
+          {% else %}
+           <li class="list-group-item"><a  style="color:red" class="list-group-item"> <i class="fa fa-lock"></i> 
+           {{clip.title}} </a></li>
+          
+          {% endif%}
+        
+          {% if forloop.counter == 10  %}
+              </div>
+               <div id="collapse2" class="panel-collapse collapse">
+          {% endif %} 
+          {% if forloop.counter == 20  %}
+              </div>
+               <div id="collapse3" class="panel-collapse collapse">
+          {% endif %} 
+        
+         {% if forloop.counter == 30  %}
+              </div>
+               <div id="collapse4" class="panel-collapse collapse">
+          {% endif %} 
+        
+
+         
+         {% endfor %}
+      
+        
+        </div></div>   
+        
+        </div>
+                        </div>
+</div>
+</div>
+  
+</div>
+</div>
+{% endblock %}

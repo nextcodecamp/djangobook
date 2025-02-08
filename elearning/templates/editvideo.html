@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Create Online Course  to nextcodecamp e-learning
+{% endblock %}
+{% block menu %}
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin/">nextcodecamp.com</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/listcourse/">Home</a></li>
+      <li><a href="/memberpage/">My learning</a></li>
+      <li class="active"><a href="/listcreatedcourse/">My course</a></li>
+      <li><a href="/logoutsys/">Log out</a></li>     
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+{% block content %}
+
+
+<h1 align="center">Edit Video Clip</h1>
+
+<div class="center" style = "width:700px; border:thin solid grey">
+<h4 align="left"><div>
+  <a href="/listcreatedcourse/"> &nbsp;&nbsp; Back </a> 
+
+</div></h4>
+
+<form action="/editvideoclip/{{context.courseid}}/{{context.videoid}}/" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+  {{  context.form.non_field_errors }}
+
+<div class="fieldWrapper" style="margin:30px; width:500px">
+    {{ context.form.title.errors }}
+    <label for="{{ context.form.title.id_for_label }}">Title:</label><br/>
+    {{ context.form.title }}
+</div>
+<div class="fieldWrapper center" style="margin:30px;width:500px">
+    {{ context.form.fileclip.errors }}
+    <label for="{{ context.form.fileclip.id_for_label }}">File clip:</label><br/>
+    <a href='{{ context.form.fileclip }}'> <img src="{% static 'youtube.png' %}" width='50' height='50'/> </a>
+   
+</div>
+<div class="fieldWrapper center" style="margin:30px;width:500px">
+    {{ context.form.shortdetail.errors }}
+    <label for="{{ context.form.shortdetail.id_for_label }}">Short detail:</label><br/>
+    {{ context.form.shortdetail}}
+</div>
+<div class="fieldWrapper center" style="margin:30px;width:500px">
+    {{ context.form.published_date.errors }}
+    <label for="{{ context.form.published_date.id_for_label }}">Published date:</label><br/>
+    {{ context.form.published_date}}
+</div>
+<div class="fieldWrapper center" style="margin:30px;width:500px">
+    {{ context.form.demo.errors }}
+    <label for="{{ context.form.demo.id_for_label }}">Demo:</label><br/>
+    {{ context.form.demo}}
+</div>
+   <div class="center" style="width:500px;margin:30px" > <input type="submit" value="Save video"  class="btn btn-default"></div>
+</form>
+
+</div>
+</div>
+</form>
+</div>
+
+{% endblock %}
