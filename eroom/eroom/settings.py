@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-+n&@lr&+5h@%my8$f$v16i^g_sp90+l#9606@pt*8--^_)g23h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '93.127.206.75','194.238.18.26']
+ALLOWED_HOSTS = ['*']  #Can set IP that is allowed to access the Django application
 
 
 # Application definition
@@ -154,11 +154,11 @@ DATETIME_FORMAT = '%d-%m-%Y %H:%M:%S'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-STATIC_URL = "vroom/static/"
-#os.path.join(BASE_DIR, 'app1/static/'),
+#BASE_DIR is c:\eroom
+#App is in c:\eroom\vroom,c:\eroom\elearning, root is c:\eroom\eroom 
+STATIC_URL = "vroom/static/"       #This is default of static file
 STATIC_ROOT = BASE_DIR / 'static'
-STATICFILES_DIRS = [
+STATICFILES_DIRS = [               #If you want Django to search somewhere, then specify path here.
     "vroom/static/",
     "elearning/static/video",
     "elearning/static/img",
@@ -177,8 +177,8 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'contactnextcodecamp@gmail.com' #Set to your email
 EMAIL_HOST_PASSWORD = "xxxx xxxx xxxx xxxx"       #Set to your password 
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'media/'                             #This is a path to keep images and video
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')     #Need eroom/media, note folder eroom in project level.  
 #IMG_URL = "img/"
 DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
 DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR / 'backup'}
